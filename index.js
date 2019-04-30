@@ -15,9 +15,14 @@ app.get('/api', async(req, res)=> {
 
 
     if(maxNumber == undefined || maxNumber == null || maxNumber == "" || word == undefined || word == null || word == ""){
-
+        let result =   {"status": "error" };
         response = {
             statusCode: 400,
+            headers: {
+            "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+            "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS
+        },
+        body: result
 
         };
         res.send(response);
